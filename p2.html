@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>City Care Hospital</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f5f9fc;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #087f8c, #0b5563);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 19px;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 18px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #075e6b;
+            font-weight: bold;
+            margin: 0 18px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00a6b4;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 80px 30px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(4, 91, 105, 0.90),
+                    rgba(5, 120, 130, 0.90)
+                );
+        }
+
+        .hero h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            font-size: 18px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 28px;
+            background: white;
+            color: #087f8c;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+            background: #e8ffff;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Section Heading */
+        .section-title {
+            text-align: center;
+            color: #075e6b;
+            font-size: 30px;
+            margin: 45px 0 25px;
+        }
+
+        /* About */
+        .about {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+        }
+
+        /* Departments */
+        .departments {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .department-card {
+            background: white;
+            padding: 25px 15px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+            transition: 0.3s;
+        }
+
+        .department-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .department-card .icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .department-card h3 {
+            color: #087f8c;
+            font-size: 18px;
+        }
+
+        /* Emergency */
+        .emergency {
+            margin-top: 45px;
+            padding: 45px 25px;
+            background: #fff1f1;
+            border: 2px solid #ffdddd;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .emergency h2 {
+            color: #c62828;
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .emergency p {
+            font-size: 17px;
+        }
+
+        .emergency-contact {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 25px;
+            background: #c62828;
+            color: white;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Contact */
+        .contact-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+        }
+
+        .contact-box p {
+            margin: 8px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            background: #073b44;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+
+            .departments {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            .hero {
+                margin: 20px;
+                padding: 55px 20px;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .departments {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                line-height: 2.5;
+            }
+
+            nav a {
+                margin: 0 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>City Care Hospital</h1>
+        <p>Quality Healthcare for Everyone</p>
+    </header>
+
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Hospital</a>
+        <a href="#doctors">Doctors</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <h2>Welcome to City Care Hospital</h2>
+
+        <p>
+            City Care Hospital provides modern healthcare facilities
+            with experienced doctors and trained medical staff.
+        </p>
+
+        <a href="#services" class="hero-button">
+            Explore Our Services
+        </a>
+
+    </section>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- About Hospital -->
+        <section id="about">
+
+            <h2 class="section-title">
+                About City Care Hospital
+            </h2>
+
+            <div class="about">
+
+                <p>
+                    City Care Hospital provides modern healthcare
+                    facilities with experienced doctors and trained
+                    medical staff.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Doctors -->
+        <section id="doctors">
+
+            <h2 class="section-title">
+                Our Doctors
+            </h2>
+
+            <div class="about">
+
+                <p>
+                    Our hospital has experienced doctors and trained
+                    medical staff dedicated to providing quality
+                    healthcare services.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Services / Departments -->
+        <section id="services">
+
+            <h2 class="section-title">
+                Our Departments
+            </h2>
+
+            <div class="departments">
+
+                <div class="department-card">
+                    <div class="icon">❤️</div>
+                    <h3>Cardiology</h3>
+                </div>
+
+                <div class="department-card">
+                    <div class="icon">🧠</div>
+                    <h3>Neurology</h3>
+                </div>
+
+                <div class="department-card">
+                    <div class="icon">🦴</div>
+                    <h3>Orthopedics</h3>
+                </div>
+
+                <div class="department-card">
+                    <div class="icon">🩺</div>
+                    <h3>General Medicine</h3>
+                </div>
+
+                <div class="department-card">
+                    <div class="icon">👶</div>
+                    <h3>Pediatrics</h3>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Emergency -->
+        <section class="emergency">
+
+            <h2>🚨 Emergency Services</h2>
+
+            <p>
+                Emergency services are available 24 hours a day,
+                7 days a week.
+            </p>
+
+            <div class="emergency-contact">
+                Emergency Contact: 6367014***
+            </div>
+
+        </section>
+
+
+        <!-- Contact -->
+        <section id="contact">
+
+            <h2 class="section-title">
+                Contact Us
+            </h2>
+
+            <div class="contact-box">
+
+                <p><strong>City Care Hospital</strong></p>
+
+                <p>
+                    Quality Healthcare for Everyone
+                </p>
+
+                <p>
+                    Emergency: 6367014***
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            &copy; 2026 City Care Hospital
+        </p>
+
+        <p>
+            Quality Healthcare for Everyone
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
